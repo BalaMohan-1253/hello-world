@@ -1,8 +1,11 @@
 import java.util.Scanner;
-public class Validage extends Exception
+import java.io*.;
+public class Invalidage extends Exception
 {
- public static void main(String args[])
+ public static void main(String args[]) throws IOException
  {
+  InputStreamReader irs = new InputStreamReader(System.in);
+  BufferedReader br = new BufferedReader(irs);
   while(true)
   {
   try
@@ -10,15 +13,21 @@ public class Validage extends Exception
    Scanner input = new Scanner(System.in);
    System.out.println("Enter your age: ");
    int age = input.nextInt();
-   if(age>=18)
+   if(age<18)
    {
-    throw new Validage();
+    throw new Invalidage();
     }
-   System.out.println("You are not eligible to vote");
+   System.out.println("Congratulations!! You are eligible to vote");
+   System.out.println("Enter your name: ");
+   String name = br.readLine();
+   System.out.println("Enter your surname: ");
+   String str snake = br.readLine();
+   System.out.println("Enter your D.O.B: ");
+   String dob = br.readLine();
    }
   catch(Invalid obj)
   {
-   System.out.println("Congratulations! You are eligible to vote");
+   System.out.println("You are not eligible to vote");
    }
   }
  }
